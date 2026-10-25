@@ -11,8 +11,6 @@
 [![VirusTotal v0.1.0](https://img.shields.io/badge/VirusTotal-v0.1.0-blue)](https://www.virustotal.com/gui/file/a6039499d538bc3c8fcf988bfbb1346899873fce8c014c229d1338d46ee91200)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-![SSD Installer](docs/screenshot.png)
-
 > [!WARNING]
 > **Preview / Pratinjau 0.1.** The selected SSD is **completely erased**. Use an empty or spare SSD. Tested so far: Windows 11 Pro (UEFI) installed from a Windows 11 26H2 PC and **booted successfully on an all-in-one PC**. Legacy BIOS, Windows 10, extra drivers and the local account option are not tested on hardware yet.
 >

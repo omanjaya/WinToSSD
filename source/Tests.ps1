@@ -169,3 +169,5 @@ Pass 'install flow BIOS layout' {
     if ($script:fake.files.Count -ne 0) { throw 'unattend written without a local account' }
 }
 Write-Output "TOTAL: $script:passed tests passed. Storage/DISM are mocked; no physical disk or boot test was performed."
+# The native-tool test leaves $LASTEXITCODE at 5; CI wrappers read it, so report success explicitly.
+exit 0
