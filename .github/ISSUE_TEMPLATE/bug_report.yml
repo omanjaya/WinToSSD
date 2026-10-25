@@ -1,0 +1,62 @@
+name: Bug report · Laporan bug
+description: Something failed, or the SSD does not boot · Ada yang gagal, atau SSD tidak bisa boot
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Remove serial numbers and personal paths from logs and screenshots before posting.
+        Terima kasih sudah melapor! Hapus nomor seri dan jalur pribadi dari log/screenshot sebelum dikirim.
+  - type: input
+    id: version
+    attributes:
+      label: App version · Versi aplikasi
+      placeholder: "0.2.0"
+    validations:
+      required: true
+  - type: input
+    id: host
+    attributes:
+      label: Installer PC Windows build · Build Windows PC pemasang
+      description: "Run winver · Jalankan winver"
+      placeholder: "Windows 11 26H2, build 26300.9711"
+  - type: input
+    id: iso
+    attributes:
+      label: ISO and edition · ISO dan edisi
+      placeholder: "Windows 11 26H2 x64, Pro (install.wim)"
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Boot mode · Mode boot
+      options:
+        - UEFI / GPT
+        - Legacy BIOS / MBR
+  - type: input
+    id: hardware
+    attributes:
+      label: SSD, USB adapter and target PC · SSD, adaptor USB, dan PC tujuan
+      placeholder: "SATA 256 GB, SATA-to-USB adapter, all-in-one PC"
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where did it fail? · Gagal di tahap mana?
+      options:
+        - Finding the SSD · Cari SSD
+        - Check without formatting · Periksa tanpa format
+        - Installing · Pemasangan
+        - Booting on the target PC · Boot di PC tujuan
+        - Other · Lainnya
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? · Apa yang terjadi?
+      description: Error message, screenshot, BSOD code · Pesan error, screenshot, kode BSOD
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: session.log
+      description: "Click 'Open log folder' in the app (%ProgramData%\\SSDInstaller\\Sessions) · Klik 'Buka folder log' di aplikasi"
+      render: text

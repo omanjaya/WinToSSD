@@ -8,9 +8,11 @@
     <Nullable>enable</Nullable>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <AssemblyName>SSDInstaller</AssemblyName>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <Description>Pasang Windows ke SSD USB untuk dipasang internal.</Description>
+    <ApplicationIcon>app.ico</ApplicationIcon>
     <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
   </PropertyGroup>
   <ItemGroup><EmbeddedResource Include="Engine.ps1" /></ItemGroup>
 </Project>

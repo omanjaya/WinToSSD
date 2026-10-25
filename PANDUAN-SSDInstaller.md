@@ -1,4 +1,4 @@
-# SSD Installer 0.1 — pratinjau
+# SSD Installer 0.2 — pratinjau
 
 Aplikasi gratis untuk memasang Windows dari ISO ke SSD melalui adaptor USB. Setelah selesai, SSD dipasang di slot internal PC/laptop tujuan. Tidak memerlukan flashdisk installer. Aplikasi ini dibuat sendiri dan tidak berafiliasi dengan WinToHDD.
 
@@ -19,16 +19,17 @@ EXE sudah menyertakan runtime .NET sehingga pengguna tidak perlu memasang .NET S
 
 1. Cadangkan seluruh isi SSD. Proses pemasangan menghapus **semua partisi dan data SSD yang dipilih**.
 2. Simpan `SSDInstaller.exe` dan ISO di disk internal komputer pemasang. Sambungkan SSD tujuan melalui adaptor USB. Lepaskan disk USB lain yang tidak diperlukan agar lebih mudah mengenali target.
-3. Jalankan `SSDInstaller.exe`, lalu setujui permintaan Administrator Windows.
+3. Jalankan `SSDInstaller.exe`, lalu setujui permintaan Administrator Windows. Bahasa tampilan (Indonesia/English) bisa diganti di pojok kanan atas.
 4. Klik **Pilih ISO**, kemudian pilih edisi Windows yang sesuai dengan lisensimu. Pilihan edisi dibaca dari isi ISO.
 5. Klik **Cari SSD USB**, lalu pilih disk berdasarkan model, kapasitas, dan nomor seri. Aplikasi tidak memilih target secara otomatis. Jika SSD tidak terlihat, buka tab Log proses untuk alasan penolakannya.
 6. Pilih **UEFI / GPT** atau **Legacy BIOS / MBR** sesuai firmware komputer tempat SSD akan dipasang. Pilihan ini tidak dideteksi dari komputer pemasang karena komputer tujuan bisa berbeda.
 7. Jika komputer tujuan memakai Intel RST/VMD/RAID atau controller yang memerlukan driver, ekstrak paket driver x64 resmi produsennya, lalu pilih folder berisi `.inf`. Installer driver `.exe` tidak digunakan langsung. Driver ditambahkan ke Windows, bukan ke image WinRE.
+   - Opsional, **Akun lokal**: isi nama akun (1–20 huruf/angka, tanpa spasi) untuk membuat akun administrator **tanpa password** dan melewati halaman akun Microsoft serta Wi-Fi saat pengaturan awal Windows. Kosongkan jika akun ingin dibuat seperti biasa. Pasang password setelah masuk Windows. Opsi ini belum diuji di hardware.
 8. Klik **Periksa tanpa format**. Ini membaca ISO dan SSD, serta memasang ISO sementara secara read-only; tidak memformat SSD. Penghitungan hash ISO besar bisa memerlukan beberapa menit.
 9. Baca rencana pemasangan. Klik **Pasang Windows**, centang persetujuan penghapusan, lalu ketik frasa `HAPUS DISK N` yang ditampilkan. Baru setelah ini format diizinkan. Pemeriksaan lengkap dijalankan ulang sebelum format.
-10. Biarkan proses berjalan hingga selesai. Jangan cabut kabel, ubah partisi, biarkan komputer sleep, atau hentikan aplikasi. Proses instalasi tidak menyediakan pembatalan setelah dimulai.
-11. Setelah sukses, tutup aplikasi dan matikan komputer pemasang sepenuhnya sebelum mencabut SSD. Pasang SSD di slot internal komputer tujuan saat komputer tujuan juga mati.
-12. Sesuaikan mode firmware. Untuk UEFI pilih Windows Boot Manager bila tersedia; untuk Legacy pilih SSD. Selesaikan pengaturan awal Windows. Internet dan akun dapat diperlukan sesuai edisi/build Windows.
+10. Biarkan proses berjalan hingga selesai; progres penyalinan ditampilkan dalam persen. Aplikasi menahan Windows agar tidak sleep otomatis, tetapi jangan menutup lid laptop, mencabut kabel, mengubah partisi, atau menghentikan aplikasi. Proses instalasi tidak menyediakan pembatalan setelah dimulai.
+11. Setelah sukses, tutup aplikasi lalu eject SSD lewat **Safely Remove Hardware** (atau matikan komputer pemasang) sebelum mencabutnya. Pasang SSD di slot internal komputer tujuan saat komputer tujuan juga mati.
+12. Sesuaikan mode firmware. Untuk UEFI pilih Windows Boot Manager bila tersedia; untuk Legacy pilih SSD. Selesaikan pengaturan awal Windows. Internet dan akun dapat diperlukan sesuai edisi/build Windows, kecuali akun lokal diisi.
 
 ## Memilih mode boot
 
@@ -60,7 +61,7 @@ Pemeriksaan tersebut **tidak** membuktikan kecocokan CPU, firmware, driver stora
 - `INACCESSIBLE_BOOT_DEVICE`: periksa kebutuhan driver storage komputer tujuan, terutama RST/VMD/RAID. Jangan mengubah AHCI/RAID/VMD sembarangan jika ada instalasi Windows lain.
 - Pelanggaran Secure Boot: periksa versi ISO dan pembaruan firmware/kunci Secure Boot dengan dokumentasi produsennya. Aplikasi tidak memodifikasi firmware atau menonaktifkan Secure Boot.
 
-Klik **Buka folder log** untuk memperoleh `session.log` dan log DISM. Folder sesi berada di `%LOCALAPPDATA%\SSDInstaller\Sessions`. Log berisi lokasi file dan identitas disk; periksa dulu sebelum membagikannya. Tidak ada pengiriman log atau telemetri aplikasi.
+Klik **Buka folder log** untuk memperoleh `session.log` dan log DISM. Folder sesi berada di `%ProgramData%\SSDInstaller\Sessions`; hanya Administrator dan SYSTEM yang bisa menulis di sana, sehingga program lain tidak bisa mengubah skrip yang dijalankan aplikasi sebagai Administrator. Log berisi lokasi file dan identitas disk; periksa dulu sebelum membagikannya. Tidak ada pengiriman log atau telemetri aplikasi.
 
 ## Source dan build
 

@@ -81,3 +81,16 @@ Diperbaiki selama pengujian:
 LULUS: SSD hasil pemasangan dipasang di PC AIO (UEFI) dan Windows 11 Pro berhasil boot.
 
 BELUM DIUJI: mode Legacy BIOS/MBR, ISO install.esd, Windows 10, dan driver tambahan.
+
+---
+Versi 0.2.0 — 26 Oktober 2026 (build lokal, belum diuji di hardware)
+
+LULUS: 56 pengujian di Windows PowerShell 5.1, termasuk simulasi alur pemasangan lengkap
+       (UEFI: satu MSR, susunan EFI/MSR/Windows/Recovery, bcdboot, mountvol; BIOS: IFS aktif, 0x27, bootsect)
+       dan validasi nama akun lokal, unattend.xml, serta pesan bahasa Inggris.
+LULUS: tes alur pemasangan gagal bila perbaikan MSR ganda dihapus (regresi tertangkap).
+LULUS: engine membalas dalam bahasa Inggris/Indonesia sesuai request; request lama tanpa field baru tetap terbaca.
+LULUS: build .NET SDK 10.0.402 tanpa peringatan; EXE terkompresi 49,3 MB (sebelumnya 111 MB); ikon dan versi 0.2.0.0 tertanam.
+
+BELUM DIUJI: tampilan bahasa Inggris, progres persen, anti-sleep, dan folder kerja %ProgramData% di aplikasi yang berjalan sebagai Administrator.
+BELUM DIUJI: akun lokal (unattend.xml) saat pengaturan awal Windows 11 26H2.
