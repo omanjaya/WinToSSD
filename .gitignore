@@ -1,0 +1,6 @@
+# Build output — the EXE is published on GitHub Releases, not in the repo (>100 MB).
+bin/
+obj/
+publish/
+*.exe
+SHA256SUMS.txt

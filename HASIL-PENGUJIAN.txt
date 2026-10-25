@@ -1,0 +1,82 @@
+SSD Installer 0.1 — hasil verifikasi
+Tanggal: 25 Oktober 2026 (Asia/Makassar)
+
+LULUS: kompilasi Release .NET 10, self-contained win-x64.
+LULUS: struktur PE AMD64, subsystem GUI Windows, manifest Administrator.
+LULUS: engine PowerShell tertanam identik dengan source yang disertakan.
+LULUS: parser PowerShell pada Engine.ps1 dan Tests.ps1.
+LULUS: 42 pengujian logika pengaman dengan mock Storage/DISM.
+
+BELUM DIUJI: menjalankan EXE dan tampilan WinForms pada Windows.
+BELUM DIUJI: Windows PowerShell 5.1 dan cmdlet Storage/DISM pada Windows asli.
+BELUM DIUJI: format SSD, apply ISO, BCDBoot/Bootsect/WinRE secara end-to-end.
+BELUM DIUJI: boot SSD pada firmware UEFI/Legacy dan hardware tujuan.
+
+Pengujian logika memakai PowerShell SDK 7.6 pada macOS, bukan pengujian instalasi fisik.
+Runtime verifikasi hanya dipakai saat pengembangan dan tidak disertakan dalam EXE.
+Tidak ada disk pengguna yang diformat atau instalasi Windows yang dilakukan selama pembuatan.
+
+PASS Windows 10 UEFI
+PASS Windows 10 BIOS
+PASS Windows 11 UEFI
+PASS reject Windows 11 BIOS
+PASS reject host older than image
+PASS reject invalid firmware mode
+PASS reject ARM64
+PASS reject 32-bit image
+PASS reject Windows Server
+PASS reject Windows 7
+PASS matching disk identity
+PASS reject changed disk Number
+PASS reject changed disk Path
+PASS reject changed disk SerialNumber
+PASS reject changed disk UniqueId
+PASS reject changed disk Size
+PASS disk layout identity may change after erase
+PASS reject serial may not change after erase
+PASS eligible empty USB SSD
+PASS reject protected IsBoot disk
+PASS reject protected IsSystem disk
+PASS reject IsOffline disk
+PASS reject IsReadOnly disk
+PASS reject internal NVMe
+PASS reject undersized disk
+PASS reject unhealthy disk
+PASS reject missing ID
+PASS reject duplicate hardware ID
+PASS reject protected partition on USB
+PASS reject pagefile on target
+PASS unchanged approved plan
+PASS reject changed plan isoHash
+PASS reject changed plan index
+PASS reject changed plan mode
+PASS reject changed plan drivers
+PASS reject changed plan iso
+PASS reject partition modified after approval
+PASS reject disk swapped after approval
+PASS reject incorrect erase phrase
+PASS valid Microsoft boot tool
+PASS reject unsigned boot tool
+PASS reject non-Microsoft boot tool
+TOTAL: 42 tests passed. Storage/DISM are mocked; no physical disk or boot test was performed.
+
+---
+Pengujian di Windows — 25 Oktober 2026
+Host: Windows 11 Home Single Language 26H2 (build 26300), Windows PowerShell 5.1.
+
+LULUS: 44 pengujian logika di Windows PowerShell 5.1 (42 di atas + 2 pengujian exit code alat native).
+LULUS: build ulang dengan .NET SDK 10.0.402; Engine.ps1 tertanam identik dengan source.
+LULUS: aplikasi berjalan sebagai Administrator; daftar SSD USB, baca ISO, dan pemeriksaan tanpa format.
+LULUS: pemeriksaan build host menolak ISO 26300 saat host masih build 26200.
+LULUS: pemasangan end-to-end Windows 11 Pro 26300 (install.wim) mode UEFI ke SSD SATA 256 GB lewat adaptor USB:
+       format, DISM apply + verify, BCDBoot, WinRE, verifikasi berkas boot, pelepasan drive letter.
+LULUS: susunan partisi hasil: EFI 512 MiB, MSR 16 MiB, Windows NTFS, Recovery 3 GiB (satu MSR).
+
+Diperbaiki selama pengujian:
+- Native: PowerShell 5.1 menganggap baris stderr sebagai error fatal; kini hanya exit code yang menentukan.
+- Langkah akhir: Set-Partition -NoDefaultDriveLetter ditolak untuk partisi Recovery; huruf drive kini dilepas dengan mountvol.
+- Initialize-Disk GPT membuat MSR sendiri sehingga ada dua MSR; MSR bawaan kini dihapus lebih dulu.
+- Tampilan: tombol Pasang Windows abu-abu saat nonaktif; baris rencana tidak lagi menyambung.
+
+BELUM DIUJI: boot SSD di komputer tujuan.
+BELUM DIUJI: mode Legacy BIOS/MBR, ISO install.esd, Windows 10, dan driver tambahan.
