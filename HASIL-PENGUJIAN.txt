@@ -78,5 +78,6 @@ Diperbaiki selama pengujian:
 - Initialize-Disk GPT membuat MSR sendiri sehingga ada dua MSR; MSR bawaan kini dihapus lebih dulu.
 - Tampilan: tombol Pasang Windows abu-abu saat nonaktif; baris rencana tidak lagi menyambung.
 
-BELUM DIUJI: boot SSD di komputer tujuan.
+LULUS: SSD hasil pemasangan dipasang di PC AIO (UEFI) dan Windows 11 Pro berhasil boot.
+
 BELUM DIUJI: mode Legacy BIOS/MBR, ISO install.esd, Windows 10, dan driver tambahan.

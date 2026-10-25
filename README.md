@@ -11,9 +11,9 @@
 ![SSD Installer](docs/screenshot.png)
 
 > [!WARNING]
-> **Preview / Pratinjau 0.1.** The selected SSD is **completely erased**. Use an empty or spare SSD. Installation has been verified end-to-end once on Windows 11 26H2, but **booting on target hardware has not been tested yet**.
+> **Preview / Pratinjau 0.1.** The selected SSD is **completely erased**. Use an empty or spare SSD. Tested so far: Windows 11 Pro (UEFI) installed from a Windows 11 26H2 PC and **booted successfully on an all-in-one PC**. Legacy BIOS, Windows 10 and extra drivers are not tested yet.
 >
-> SSD yang dipilih akan **dihapus seluruhnya**. Gunakan SSD kosong/cadangan. Pemasangan sudah diuji sekali di Windows 11 26H2, tetapi **boot di komputer tujuan belum diuji**.
+> SSD yang dipilih akan **dihapus seluruhnya**. Gunakan SSD kosong/cadangan. Sudah diuji: Windows 11 Pro (UEFI) dipasang dari PC Windows 11 26H2 dan **berhasil boot di PC AIO**. Legacy BIOS, Windows 10, dan driver tambahan belum diuji.
 
 ## For technicians · Untuk teknisi
 

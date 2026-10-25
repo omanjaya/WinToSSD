@@ -2,7 +2,7 @@
 
 Aplikasi gratis untuk memasang Windows dari ISO ke SSD melalui adaptor USB. Setelah selesai, SSD dipasang di slot internal PC/laptop tujuan. Tidak memerlukan flashdisk installer. Aplikasi ini dibuat sendiri dan tidak berafiliasi dengan WinToHDD.
 
-**Status: sudah diuji sekali end-to-end di Windows 11 26H2 (build 26300): Windows 11 Pro mode UEFI berhasil dipasang ke SSD SATA 256 GB melalui adaptor USB, dan berkas boot/WinRE terverifikasi. Boot di komputer tujuan, mode Legacy BIOS, ISO ESD, dan driver tambahan belum diuji. Gunakan SSD kosong/cadangan untuk pengujian pertama. Jangan mengandalkan versi pratinjau ini sebagai satu-satunya jalan pemulihan komputer.**
+**Status: sudah diuji sekali end-to-end di Windows 11 26H2 (build 26300): Windows 11 Pro mode UEFI berhasil dipasang ke SSD SATA 256 GB melalui adaptor USB, berkas boot/WinRE terverifikasi, dan SSD berhasil boot setelah dipasang di PC AIO. Mode Legacy BIOS, Windows 10, ISO ESD, dan driver tambahan belum diuji. Gunakan SSD kosong/cadangan untuk pengujian pertama. Jangan mengandalkan versi pratinjau ini sebagai satu-satunya jalan pemulihan komputer.**
 
 ## Yang diperlukan
 
@@ -50,7 +50,7 @@ Pilihan yang salah dapat membuat SSD tidak terbaca sebagai perangkat boot. Tidak
 - BCDBoot diarahkan secara eksplisit ke partisi boot SSD. BCD komputer pemasang tidak menjadi target. Untuk Legacy, Bootsect juga diarahkan ke partisi SSD pilihan.
 - Keberadaan berkas Windows/boot, EFI fallback untuk UEFI, keterbacaan BCD, dan entri loader diperiksa. WinRE disalin ke recovery dan didaftarkan secara offline; pengaktifannya dilakukan saat konfigurasi awal Windows.
 
-Pemeriksaan tersebut **tidak** membuktikan kecocokan CPU, firmware, driver storage, Secure Boot, kesehatan kabel saat dipakai, atau keberhasilan boot fisik. Baru ada satu pengujian pemasangan end-to-end di Windows; boot fisik belum diuji.
+Pemeriksaan tersebut **tidak** membuktikan kecocokan CPU, firmware, driver storage, Secure Boot, kesehatan kabel saat dipakai, atau keberhasilan boot fisik. Sejauh ini baru satu kombinasi yang diuji sampai boot: Windows 11 Pro UEFI di PC AIO.
 
 ## Jika proses gagal
 
